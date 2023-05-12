@@ -1,12 +1,12 @@
 a = {1: 'Maria', 2: 'Joao', 3: 'Gp'}
 
-print a 
+print (a) 
 
 a.popitem()
-print a
+print (a)
 
 a.pop(2)
-print a
+print (a)
 
 a.clear()
-print a 
+print (a) 

@@ -2,8 +2,8 @@ a = 10
 b = 20
 
 if a > b:
-	print a
+	print (a)
 elif b > a:
-	print b
+	print (b)
 else:
-	print 'Nao encontrado'
+	print ('Nao encontrado')

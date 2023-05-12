@@ -15,7 +15,7 @@ IMAGENS_PASSARO = [
 ]
 
 pygame.font.init()
-FONTE_PONTOS = pygame.font.SysFont('arial', 50)
+FONTE_PONTOS = pygame.font.SysFont('arial', 40)
 
 
 class Passaro:
@@ -94,7 +94,7 @@ class Passaro:
 
 
 class Cano:
-    DISTANCIA = 200
+    DISTANCIA = 250
     VELOCIDADE = 5
 
     def __init__(self, x):
@@ -195,6 +195,11 @@ def main():
                 if evento.key == pygame.K_SPACE:
                     for passaro in passaros:
                         passaro.pular()
+            if evento.type == pygame.KEYDOWN:
+                if evento.key == pygame.K_ESCAPE:
+                    rodando = False
+                    pygame.quit()
+                    quit()
 
         # mover as coisas
         for passaro in passaros:

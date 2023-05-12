@@ -9,7 +9,7 @@ import pyaudio
 
 audio = sr.Recognizer()
 maquina = pyttsx3.init()
-openai.api_key = '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'  # Substitua 'SUA_API_KEY' pela sua chave de API do OpenAI
+openai.api_key = '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'  # Substitua 'SUA_API_KEY' pela sua chave de API do OpenAI
 
 def executa_comando():
     try:

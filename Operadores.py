@@ -20,6 +20,6 @@ b <= a
 a == b
 a != b
 
-curso = 'Programe Facil'
-'Programe' in curso
+curso = 'Raphael Olimpio'
+'Raphael' in curso
 'teste' not in curso
