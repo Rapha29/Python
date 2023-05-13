@@ -1,5 +1,5 @@
 minha_string = 'Programe Facil'
-print minha_string
+print (minha_string)
 
 print ("%d" % 10)
 
