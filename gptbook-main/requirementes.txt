@@ -1,0 +1,34 @@
+streamlit
+langchain
+PyPDFLoader
+
+
+Requisitos
+Python 3.8+
+Bibliotecas:
+
+streamlit
+langchain
+PyPDFLoader
+Chroma
+Instalação e configuração
+Instale as bibliotecas necessárias:
+pip install streamlit langchain PyPDFLoader Chroma
+
+Clone o repositório e acesse a pasta do projeto
+git clone [URL_DO_REPOSITORIO]
+
+cd gpt_book
+
+Adicione a chave da API da OpenAI ao arquivo gpt_book.py
+os.environ['OPENAI_API_KEY'] = 'sua_chave_da_api'
+
+Execute o aplicativo:
+streamlit run gpt_book.py
+
+Uso
+Faça o upload do livro em PDF que deseja processar.
+Aguarde a mensagem de sucesso ao concluir o processamento.
+Digite um prompt na caixa de texto e pressione Enter para obter a resposta do GPT-4.
+Veja os resultados relevantes das páginas do livro processado.
+Com o GPT Book, você pode obter respostas rápidas e relevantes de um livro.
