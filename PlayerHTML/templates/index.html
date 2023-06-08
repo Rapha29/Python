@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Player de Vídeo</title>
+</head>
+<body>
+    <h1>Lista de Vídeos</h1>
+    <ul>
+        {% for file in files %}
+        <li><a href="?file={{ file }}">{{ file }}</a></li>
+        {% endfor %}
+    </ul>
+
+    {% if selected_file %}
+    <h2>Reproduzindo: {{ selected_file }}</h2>
+    <video controls>
+        <source src="{{ url_for('static', filename='videos/' ~ selected_file) }}" type="video/mp4">
+    </video>
+    {% endif %}
+</body>
+</html>

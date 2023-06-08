@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+}
+
+.video-list {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.video-wrapper {
+    width: 720px;
+    height: 480px;
+    margin-left: auto;
+}
+
+.video-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.video-list li {
+    margin-bottom: 10px;
+}
+
+.video-list li.selected {
+    font-weight: bold;
+}
+
+.video-list li a {
+    text-decoration: none;
+}
+
+.video-list li.selected a {
+    color: red;
+}
