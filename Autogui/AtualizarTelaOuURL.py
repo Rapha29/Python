@@ -7,8 +7,7 @@ while True:
 
 python atualizar_pagina.py
 
-
------------------------------
+// ------------------------------------------
 
 import pyautogui
 import time

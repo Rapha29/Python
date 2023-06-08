@@ -5,7 +5,7 @@ import tika
 from tika import parser
 import openai
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 tika.initVM()
 parsed_pdf = parser.from_file('livro.pdf')

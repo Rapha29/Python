@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Player de Vídeo</title>
+    <title>Vídeos</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-<body>
-    <h1>Lista de Vídeos</h1>
-    <ul>
-        {% for file in files %}
-        <li><a href="?file={{ file }}">{{ file }}</a></li>
-        {% endfor %}
-    </ul>
-
-    {% if selected_file %}
-    <h2>Reproduzindo: {{ selected_file }}</h2>
-    <video controls>
-        <source src="{{ url_for('static', filename='videos/' ~ selected_file) }}" type="video/mp4">
-    </video>
-    {% endif %}
+<body class="body">
+    <div class="container">
+        <div class="video-list">
+            <h2>Lista de Vídeos</h2>
+            <ul>
+                {% for video in videos %}
+                    {% if selected_video == video %}
+                        <li class="selected">{{ video }}</li>
+                    {% else %}
+                        <li>{{ video }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="video-wrapper">
+            <h2>Vídeo Atual: {{ selected_video }}</h2>
+            <div class="video-container">
+                <video controls>
+                    <source src="{{ url_for('static', filename='videos/' + selected_video) }}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
