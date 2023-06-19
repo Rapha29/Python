@@ -45,7 +45,7 @@ logo = tk.PhotoImage(file="logo.png")  # Substitua 'logo.png' pelo nome do seu a
 logo_label = ttk.Label(root, image=logo)
 logo_label.pack(pady=10)
 
-dev_label = ttk.Label(root, text="Desenvolvido por: Uélinton Morelli")
+dev_label = ttk.Label(root, text="Desenvolvido por: ")
 dev_label.pack()
 dev_label.pack(pady=10)
 
