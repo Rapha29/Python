@@ -6,7 +6,7 @@ def webcan():
     classificador = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
     camera = cv2.VideoCapture(0)
     amostra = 1
-    nome = input('Digite o Nome da Pessoa')
+    nome = input('VitorGostoso')
     while True:
         success,img = camera.read()
         imgGray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)

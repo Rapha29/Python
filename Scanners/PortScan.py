@@ -7,7 +7,7 @@ def scanner_no_ip(endereco_ip):
     print(f'Scanner no IP {endereco_ip}')
 
     # Portas que receberão uma tentativa de conexão
-    portas = [20, 21, 22, 23, 42, 43, 43, 69, 80, 109, 110, 115, 118, 143,
+    portas = [20, 21, 22, 23, 42, 43, 43, 69, 80, 8080, 109, 110, 115, 118, 143,
               156, 220, 389, 443, 465, 513, 514, 530, 547, 587, 636, 873,
               989, 990, 992, 993, 995, 1433, 1521, 2049, 2081, 2083, 2086,
               3306, 3389, 5432, 5500, 5800]
@@ -50,7 +50,7 @@ if __name__ == '__main__':
     # ip_do_servidor = socket.gethostbyname(socket.gethostname())
 
     # Buscando o IP de uma URL
-    ip_do_servidor = socket.gethostbyname('177.22.168.96')
+    ip_do_servidor = socket.gethostbyname('187.86.213.150')
 
     # Data e hora inicial do escaneamento
     t1 = datetime.now()
