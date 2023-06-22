@@ -1,0 +1,24 @@
+# Atualize os repositórios do sistema
+sudo apt update
+
+# Instale as dependências necessárias para o Docker
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+
+# Adicione a chave GPG oficial do Docker
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+# Adicione o repositório estável do Docker ao sistema
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# Atualize os repositórios novamente
+sudo apt update
+
+# Instale a versão mais recente do Docker
+sudo apt install docker-ce docker-ce-cli containerd.io
+
+# Adicione o usuário atual ao grupo "docker"
+sudo usermod -aG docker $USER
+
+# Reinicie o sistema para aplicar as alterações
+sudo reboot
+
