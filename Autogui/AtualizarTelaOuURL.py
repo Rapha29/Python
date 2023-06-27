@@ -5,9 +5,7 @@ while True:
     pyautogui.hotkey('ctrl', 'r')
     time.sleep(60)
 
-python atualizar_pagina.py
-
-// ------------------------------------------
+##// ------------------------------------------
 
 import pyautogui
 import time

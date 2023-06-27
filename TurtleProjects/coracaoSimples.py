@@ -1,3 +1,5 @@
+#mais simples ainda
+
 from turtle import *
 color("red", "pink")
 begin_fill()

@@ -1,18 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pesquisar Palavra-chave</title>
+    <title>Pesquisa em Arquivos</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <style>
+        .center-div {
+            background-color: lightgray;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .search-div {
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: left;
+            height: 50%;
+            width: 100%;
+            max-width: 400px;
+            padding: 15px;
+            border: 2px solid black;
+        }
+
+        .search-div input[type="text"],
+        .search-div input[type="submit"] {
+            width: 100%;
+        }
+
+        .btn-custom {
+            background-color: #007bff;
+            color: #fff;
+            border-color: #007bff;
+        }
+    </style>
 </head>
 <body>
-    <h1>Pesquisar Palavra-chave</h1>
-    <form method="POST" action="/" enctype="multipart/form-data">
-        <label for="excel_file">Selecione o arquivo Excel:</label>
-        <input type="file" id="excel_file" name="excel_file" accept=".xls,.xlsx">
-        <br>
-        <label for="keyword">Digite sua busca:</label>
-        <input type="text" id="keyword" name="keyword">
-        <br>
-        <input type="submit" value="Buscar">
-    </form>
+    <div class="center-div">
+        <div class="search-div">
+            <h1>Pesquisa em Arquivos</h1>
+            <form method="POST" action="/" enctype="multipart/form-data">
+                <input type="file" name="file" accept=".xlsx, .xls, .csv" required>
+                <br>
+                <input type="text" name="keyword" placeholder="Digite sua busca" required>
+                <br>
+                <input type="submit" value="Pesquisar" class="btn btn-custom">
+            </form>
+        </div>
+    </div>    
 </body>
 </html>

@@ -1,12 +1,12 @@
 import smtplib
 import ssl
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect
 
 app = Flask(__name__)
 
 users = [
-    {"email": "rapha2929@gmail.com", "pass": "rapha123"},
-    {"email": "example@example.com", "pass": "examplepass"},
+    {"email": "rapha2929@gmail.com", "pass": "abc123"},
+    {"email": "vitro.cunha.souza@gmail.com", "pass": "abc123"},
     {"email": "another@example.com", "pass": "anotherpass"}
 ]
 
@@ -18,7 +18,7 @@ def home():
 
         for user in users:
             if user_email == user["email"] and user_pass == user["pass"]:
-                return render_template("dashboard.html")
+                return redirect("https://rapha29.github.io/")
 
         return render_template("wrong.html")
 
@@ -39,7 +39,7 @@ def cadastro():
         # Adicionar o novo usuário à lista de usuários
         users.append({"email": user_email, "pass": user_pass})
 
-        return render_template("registration_success.html", email=user_email)
+        return redirect("https://rapha29.github.io/")
 
     return render_template("registration_form.html")
 
@@ -86,6 +86,5 @@ def enviar_email(nome, email, telefone, endereco):
     servidor.quit()
 
 
-
-if __name__ == "__main__":
-    app.run(port=7777)
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8080)
