@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultados da Pesquisa</title>
+</head>
+<body>
+    <h1>Resultados da Pesquisa</h1>
+    {% for resultado in resultados %}
+        <h2>A palavra-chave '{{ resultado['conteudo']['keyword'] }}' foi encontrada na planilha '{{ resultado['sheet_name'] }}', linha {{ resultado['linha'] }}:</h2>
+        <ul>
+            {% for key, value in resultado['conteudo'].items() %}
+                {% if value %}
+                    <li>{{ key }}: {{ value }}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        <hr>
+    {% endfor %}
+</body>
+</html>
