@@ -27,11 +27,13 @@
             flex-direction: column;
             justify-content: center;
             align-items: left;
-            height: 50%;
+            min-height: 50%;
             width: 100%;
             max-width: 400px;
             padding: 15px;
-            border: 2px solid black;
+            border: 0.2px scale3d;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
         }
 
         .search-div input[type="text"],
@@ -49,11 +51,12 @@
 <body>
     <div class="center-div">
         <div class="search-div">
-            <h1>Pesquisa em Arquivos</h1>
+            <h1>Pesquisar na Planilha</h1>
             <form method="POST" action="/" enctype="multipart/form-data">
-                <input type="file" name="file" accept=".xlsx, .xls, .csv" required>
+                <input type="file" name="file" accept=".xlsx, .xls, .csv, .pdf" required>
                 <br>
                 <input type="text" name="keyword" placeholder="Digite sua busca" required>
+                <br>
                 <br>
                 <input type="submit" value="Pesquisar" class="btn btn-custom">
             </form>

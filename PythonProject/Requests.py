@@ -7,7 +7,7 @@ imagem = cv2.imread("2.png")
 imagem_cinza = cv2.cvtColor(imagem, cv2.COLOR_BGR2GRAY)
 
 # Aplicar o filtro bilateral para preservar detalhes e suavizar
-imagem_suavizada = cv2.bilateralFilter(imagem_cinza, 3, 95, 75)
+imagem_suavizada = cv2.bilateralFilter(imagem_cinza, 93, 55, 75)
 
 # Aplicar o filtro Laplacian para realçar os detalhes
 imagem_laplacian = cv2.Laplacian(imagem_suavizada, cv2.CV_8U, ksize=3)

@@ -8,7 +8,7 @@ def hearta(k):
 def heartb(k):
     return 12* math.cos(k) -5 * math.cos(2*k)-2*math.cos(3*k)-math.cos(4*k)
 
-speed(10)
+speed(90)
 bgcolor ("black")
 
 for i in range (6000):

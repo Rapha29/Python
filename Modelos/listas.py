@@ -1,15 +1,12 @@
-a = ['texto', (1,2), [2,3], 1, 2, 2, 4]
+a = [0,1,2,3,4,5,6,7,8,9]
 
 a.append(4)
 
 print (a)
 
-a[2] = 'Texto'
+a[2] = 5
 
 print (a[1])
-
-print (a.count((1,2)))
-
 
 print (a.index(4))
 

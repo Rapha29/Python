@@ -1,7 +1,7 @@
-class Casa(object):
-    cor = 'Amarela'
-    altura = 3
-    quartos = 10
+class ConstruirCasa(object):
+    cor = ''
+    altura = 0
+    quartos = 0
 
     def __init__(self, cor, altura, quartos):
         self.cor = cor
@@ -15,11 +15,8 @@ class Casa(object):
         self.quartos = quartos
 
     def imprime_casa(self):
-        print(self.cor, self.altura, self.quartos)
+        print(f"Sua casa é: {self.cor}, Com {self.altura}m de altura, e com {self.quartos} quartos.")
 
-minha_casa = Casa('Vermelha', 10, 2)
-minha_casa.imprime_casa()
+pedreiro = ConstruirCasa('branca', 1, 2)
+pedreiro.imprime_casa()
 
-minha_casa.pintar('Preto')
-minha_casa.aumenta_quartos(9)
-minha_casa.imprime_casa()

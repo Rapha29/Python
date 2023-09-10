@@ -50,7 +50,7 @@ if __name__ == '__main__':
     # ip_do_servidor = socket.gethostbyname(socket.gethostname())
 
     # Buscando o IP de uma URL
-    ip_do_servidor = socket.gethostbyname('187.86.213.150')
+    ip_do_servidor = socket.gethostbyname('177.104.11.40')
 
     # Data e hora inicial do escaneamento
     t1 = datetime.now()

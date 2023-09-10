@@ -3,12 +3,10 @@ from tkinter import *
 import random
 from tkinter import messagebox
 
-
 root = tk.Tk()
 root.title('Aceitas?')
 root.geometry('600x600')
 root.configure(background='#fff')
-
 
 def move_button_1(e):
     if abs(e.x - button_1.winfo_x()) < 50 and abs(e.y - button_1.winfo_y()) < 50:
@@ -16,11 +14,9 @@ def move_button_1(e):
         y = random.randint(0, root.winfo_height() - button_1.winfo_height())
         button_1.place(x=x, y=y)
 
-
 def accepted():
     messagebox.showinfo(
         'Acertou', 'Só idiota acredita que ele é inocente')
-
 
 def denied():
     messagebox.showinfo(

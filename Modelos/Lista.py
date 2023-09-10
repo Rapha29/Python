@@ -1,4 +1,4 @@
-lista = ['Cruzeiro', 'Atletico', 'America']
+lista = ['Inter', 'Atletico', 'America']
 
 i = 0
 

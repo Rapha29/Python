@@ -1,7 +1,6 @@
 a = "Rapha".lower()
 
-for i in len(a):
-
-print(a)
+for i in int(len(a)):
+    print(a)
 
 

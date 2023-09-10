@@ -2,9 +2,7 @@ import requests
 from kivy.app import App
 from kivy.lang import Builder
 
-
 GUI = Builder.load_file("tela.kv")
-
 
 class cotacao(App):
     def build(self):
@@ -22,6 +20,5 @@ class cotacao(App):
         dic_requisicao = requisicao.json()
         cotacao = dic_requisicao[f"{moeda}BRL"]["bid"]
         return cotacao
-
 
 cotacao().run()

@@ -9,7 +9,7 @@ from langchain.agents.agent_toolkits import (
     VectorStoreInfo
 )
 
-os.environ['OPENAI_API_KEY'] = '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'
+os.environ['OPENAI_API_KEY'] = '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'
 
 # Instancie o serviço LLM da OpenAI com a temperatura de amostragem e ativando o modo verbose para debug
 llm = OpenAI(temperature=0.1, verbose=True)
