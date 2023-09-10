@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultado da Pesquisa</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f8f8;
+        }
+
+        h1, h2, p {
+            color: #333333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table th {
+            background-color: #f2f2f2;
+            border: 1px solid #dddddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        table td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Resultado da Pesquisa</h1>
+        {% if resultados %}
+            {% for resultado in resultados %}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ resultado['Sheet Name'] }}</h2>
+                    </div>
+                    <div class="panel-body">
+                        {% if resultado['Rows'] %}
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        {% for column in resultado['Rows'][0].keys() %}
+                                            <th>{{ column }}</th>
+                                        {% endfor %}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for row in resultado['Rows'] %}
+                                        <tr>
+                                            {% for value in row.values() %}
+                                                <td>{{ value }}</td>
+                                            {% endfor %}
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        {% else %}
+                            <p>Nenhuma linha encontrada para a pesquisa.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Nenhum resultado encontrado.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

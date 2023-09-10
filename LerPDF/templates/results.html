@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultados</title>
+    <style>
+        .result {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+    <script>
+        // Função para exibir os resultados da pesquisa
+        function showResults() {
+            var results = {{ results | tojson }};
+            var resultsContainer = document.getElementById('results-container');
+
+            resultsContainer.innerHTML = '';
+
+            for (var i = 0; i < results.length; i++) {
+                var result = results[i];
+                var resultDiv = document.createElement('div');
+                resultDiv.className = 'result';
+                resultDiv.innerHTML = '<h3>Página ' + result.pagina + '</h3><p>' + result.conteudo + '</p>';
+                resultsContainer.appendChild(resultDiv);
+            }
+        }
+
+        // Chamar a função para exibir os resultados quando a página é carregada
+        window.onload = showResults;
+    </script>
+</head>
+<body>
+    <h1>Resultados da Pesquisa</h1>
+    <div id="results-container"></div>
+</body>
+</html>
