@@ -79,7 +79,7 @@ def update_graph(selected_moeda, selected_prazo):
     dates, values = buscar_dados_moeda(selected_moeda, selected_prazo)
 
     ultimo_dia = max(dates)
-#    proximo_dia = ultimo_dia + pd.DateOffset(days=1)
+    proximo_dia = ultimo_dia + pd.DateOffset(days=1)
     previsao_moeda = prever_valor_moeda(np.array(range(1, len(dates) + 1)).reshape(-1, 1), values, len(dates) + 1)
 
     fig = go.Figure()
@@ -89,17 +89,17 @@ def update_graph(selected_moeda, selected_prazo):
                       yaxis_title=f'Valor da {selected_moeda}')
 
     valor_atual = buscar_valor_atual(selected_moeda)
-#    previsao_text = f"Previsão do Valor da {selected_moeda} para {proximo_dia.date()}: R${previsao_moeda:.2f}"
+    previsao_text = f"Previsão do Valor da {selected_moeda} para {proximo_dia.date()}: R${previsao_moeda:.2f}"
     estilo_texto = {'fontSize': '18px', 'marginTop': '10px'}  # Estilo padrão
 
     if previsao_moeda < valor_atual:
-#        previsao_text = f"{previsao_text} (Previsão de queda)"
+        previsao_text = f"{previsao_text} (Previsão de queda)"
         estilo_texto['color'] = 'red'
     elif previsao_moeda > valor_atual:
-#        previsao_text = f"{previsao_text} (Previsão de alta)"
+        previsao_text = f"{previsao_text} (Previsão de alta)"
         estilo_texto['color'] = 'green'
 
-#    return fig, f"Valor atual da {selected_moeda}: R${valor_atual:.2f}", html.Div(previsao_text, style=estilo_texto)
+    return fig, f"Valor atual da {selected_moeda}: R${valor_atual:.2f}", html.Div(previsao_text, style=estilo_texto)
 
 if __name__ == '__main__':
     app.run_server(debug=True)
