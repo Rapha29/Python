@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquivos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Menu Superior -->
+    <div class="menu-container">
+        <div class="filter-container">
+            <!-- Adicione o filtro de categoria aqui -->
+            <label for="category-filter">Filtrar por categoria:</label>
+            <select id="category-filter">
+                <option value="all">Todas as categorias</option>
+                <option value="Documentos">Documentos</option>
+                <option value="Imagens">Imagens</option>
+                <option value="Vídeo">Vídeo</option>
+                <option value="Áudio">Áudio</option>
+                <!-- Adicione mais opções para outras categorias -->
+            </select>
+        </div>
+        <div class="upload-container">
+            <form method="post" enctype="multipart/form-data" action="/upload_file" id="upload-form">
+                <input type="file" name="file">
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <div class="content">
+        {% for category, files in file_list.items() %}
+            {% if files %}
+            <div class="file-category {{ category }}"> <!-- Adicione a classe da categoria -->
+                <h2>{{ category }}</h2>
+                <div class="file-container">
+                    {% for file in files %}
+                        <div class="file-box {{ category }}">
+                            <div class="thumbnail-container">
+                                <!-- Conteúdo centralizado verticalmente e horizontalmente -->
+                                <div class="centered-content">
+                                    {% if category == 'Imagens' %}
+                                    <a href="{{ file.url }}" target="_blank">
+                                        <img src="{{ file.url }}" alt="{{ file.filename }}">
+                                    </a>
+                                    {% elif category == 'Vídeos' %}
+                                    <video controls class="file-player" width="250" height="250">
+                                        <source src="{{ file.url }}" type="video/mp4">
+                                        Seu navegador não suporta o elemento de vídeo.
+                                    </video>
+                                    {% elif category == 'Áudio' %}
+                                    <audio controls class="file-player">
+                                        <source src="{{ file.url }}" type="audio/mp3">
+                                        Seu navegador não suporta o elemento de áudio.
+                                    </audio>
+                                    {% else %}
+                                    <a href="{{ file.url }}">{{ file.filename }}</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

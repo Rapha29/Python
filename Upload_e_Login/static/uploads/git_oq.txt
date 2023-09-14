@@ -1,0 +1,78 @@
+*SOBRE O GIT*
+
+O *Git* é um sistema de controle de versão amplamente utilizado para rastrear e gerenciar alterações em projetos de software. Aqui estão alguns dos comandos básicos do Git e uma breve explicação de cada um:
+
+*git init*: Este comando é usado para criar um novo repositório Git em um diretório. Ele inicializa um repositório vazio no diretório atual ou em um diretório especificado.
+
+*git clone*: O comando git clone é usado para criar uma cópia de um repositório Git existente. Você fornece o URL do repositório que deseja clonar, e o Git cria uma cópia local em seu computador.
+
+*git add*: O comando git add é usado para adicionar arquivos ao índice (staging area). Isso significa que você está preparando esses arquivos para serem incluídos no próximo commit. Você pode adicionar arquivos específicos usando git add nome_do_arquivo ou adicionar todos os arquivos modificados com git add ..
+
+*git commit*: Este comando é usado para confirmar as alterações no repositório. Você deve fornecer uma mensagem de commit para descrever as alterações que está fazendo. Por exemplo, git commit -m "Adicionado novo recurso".
+
+*git status*: O comando git status exibe o status atual do seu repositório. Ele mostra quais arquivos foram modificados, quais estão no índice e quais não estão sendo rastreados.
+
+*git log*: Este comando exibe o histórico de commits do repositório. Ele mostra informações sobre cada commit, como autor, data, hora e mensagem.
+
+*git pull*: O comando git pull é usado para atualizar seu repositório local com as alterações do repositório remoto. Isso geralmente é usado quando você está trabalhando em um projeto colaborativo.
+
+*git push*: O comando git push é usado para enviar suas alterações locais para o repositório remoto. Isso permite que outras pessoas vejam e acessem suas alterações.
+
+*git branch*: O comando git branch lista todas as branches (ramificações) no seu repositório. A branch atual é destacada com um asterisco (*).
+
+*git checkout*: Este comando é usado para alternar entre branches ou para criar novas branches. Por exemplo, git checkout nome_da_branch muda para a branch especificada.
+
+*git merge*: O comando git merge é usado para incorporar as alterações de uma branch em outra. Isso cria um novo commit que combina as alterações das duas branches.
+
+*git remote*: O comando git remote exibe uma lista de repositórios remotos vinculados ao seu repositório local.
+
+*git fetch*: O comando git fetch baixa as atualizações do repositório remoto para o seu repositório local, mas não as mescla automaticamente com a branch atual.
+
+*git reset*: O comando git reset é usado para desfazer as alterações no índice ou no diretório de trabalho. Você pode usá-lo para "desfazer" commits ou para remover arquivos do índice.
+
+Vocês podem utilizar o github desktop vinculados a sua conta git para user alterações sem precisar dessa linha de comando a partir do proprio aplicativo, tambem pode usar a extensão encorporada ao VSCode para o mesmo, onde voce apenas seleciona os comandos no menu de cada um.
+
+Link para download do Git:
+https://git-scm.com
+
+Link para download do GitHub Desktop:
+https://desktop.github.com
+
+Link para download do VScode:
+https://code.visualstudio.com
+
+--------------------------------------------------------------------------------------------------
+
+*Exemplo de como criar um repositorio e enviar via terminal* vou usar de exemplo meu repositorio do git de Python para enviar um readme, no caso o repositorio é o de caminho (https://github.com/Rapha29/Python.git)
+
+Após ter o Git instalado, segure o shift do teclado e clique com o botao direito do mouse para abrir o windows powershell ou o cmd.
+
+- Faça login no git pelo terminal (só precisa ser feito uma vez) por motivos óbvios nao vou colocar meus dados:
+*git config --global user.name "Seu Nome"*
+*git config --global user.email "seu@email.com"*
+
+
+- No terminal digite: 
+*mkdir readme_novo*
+*cd readme_novo*
+
+- Agora, inicie um novo repositório Git neste diretório usando o comando:
+*git init*
+
+- Coloque um arquivo dentro da pasta criada, no meu caso coloquei o readme.md que fiz no VSCode
+(pode ser criado via terminal digitando:) 
+*echo "# Meu novo readme de exemplo" > README.md*
+
+-Agora, adicione o arquivo ao índice (staging area) usando git add:
+*git add README.md* 
+
+-Após adicionar os arquivos ao índice, você precisa fazer um commit para confirmar essas alterações no repositório. Adicione uma mensagem descritiva dentro de parentesespara o commit:
+*git commit -m "meu comentario do commit"*
+
+-Conecte seu repositório local a um repositório remotoo no GitHub. Vou usar o meu repositorio Python do GitHub que esta no endereço https://github.com/Rapha29/Python.git:
+*git remote add origin https://github.com/Rapha29/Python.git*
+
+-Envie as alterações para o repositório remoto, agora que seu repositório local está conectado ao repositório remoto, você pode enviar suas alterações
+*git push -u origin master*
+
+Qualquer duvida só me chamar 
