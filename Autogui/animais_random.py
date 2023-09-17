@@ -2,10 +2,9 @@ import random
 import time
 import pyautogui as pg
 
-time.sleep(3)
+time.sleep(5)
 
-frase = 'Raphael'
-r = 0
+animais = ('Cachorro', 'Gato', 'Porco', 'Girafa', 'Cavalo', 'Elefante', 'Tigre', 'Uso')
 
 pg.press('winleft')
 time.sleep(1)
@@ -14,21 +13,12 @@ time.sleep(1)
 pg.press('enter')
 time.sleep(1)
 
-for i in frase:
-    r = r + 1
-    pg.write(frase[0:r])
-    pg.press('Enter')
-
-for i in frase:
-    r = r - 1
-    pg.write(frase[0:r])
+for i in range(100):
+    a = random.choice(animais)
+    pg.write('No Zoológico eu vi: ' + a)
     pg.press('Enter')
     
-''' 
-# PARA FECHAR
-time.sleep(3)
 pg.hotkey('alt','f4')
 pg.press('tab')
 pg.press('enter')
 time.sleep(1)
-'''
