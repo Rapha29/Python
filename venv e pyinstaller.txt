@@ -1,0 +1,23 @@
+- Criando repositório virtual
+python -m venv meu_projeto
+
+- Ativando repositorio virtual
+.\meu_projeto\Scripts\activate
+
+- Acessando repositorio virtual
+cd meu_projeto
+
+- Crie seu codigo e instale as bibliotecas nesse repositório...
+
+- Para fazer deploy para .exe com as bibliotecas inclusas
+pip install pyinstaller
+pyinstaller --onefile --hidden-import=tkinter --hidden-import=openpyxl --hidden-import=win32com --hidden-import=schedule seu_programa.py
+
+- Explicação:
+--onefile (Faz seu arquivo .exe em um unico arquivo)
+
+--hidden-import=tkinter ( Cada biblioteca tem que ter seu import individual)
+seu_programa.py ( tem que ser o nome do seu arquivo.py )
+
+0 seu .exe ficara dentro da pasta chamado dist
+

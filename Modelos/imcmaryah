@@ -1,0 +1,29 @@
+def calculo_imc(peso, altura):
+    altura = altura / 100
+    imc = peso / (altura ** 2)
+    return imc
+
+def Result_imc(imc):
+    if imc < 18.5:
+        return "Com peso abaixo do recomendado."
+    elif 18.5 <= imc < 24.99:
+        return "Peso dentro da faixa adequada."
+    elif 25 <= imc < 29.99:
+        return "Sobrepeso"
+    elif 30 <= imc < 34.99:
+        return "Obesidade Grau I"
+    elif 35 <= imc < 39.99:
+        return "Obesidade Grau II"
+    else:
+        return "Obesidade Grau III"
+
+nome = input("Digite seu nome: ")
+peso = float(input("Digite seu peso em quilogramas: "))
+altura = input("Digite sua altura em (cm): ").replace(',','.').replace('.','')
+altura = float(altura)
+
+imc = calculo_imc(peso, altura)
+classificacao = Result_imc(imc)
+
+print(f"{nome}, seu IMC é {imc:.2f}")
+print(f"Você está classificado como: {classificacao}")
