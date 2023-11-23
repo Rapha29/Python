@@ -1,4 +1,4 @@
-#pip install tkinter pytube moviepy
+#pip install tkinter pytube moviepy 
 
 import tkinter as tk
 from pytube import YouTube
@@ -43,7 +43,7 @@ def download_video():
     video_path = os.path.join(saved_folder, video_filename)
     stream.download(saved_folder, filename=video_filename)
     
-    file_label.config(text=f"Download concluído: {video_filename}")
+    file_label.config(text=f"Carregamento concluído: {video_filename}")
     update_progressbar_labels()
     carregar_video_salvo()  
 
@@ -113,49 +113,49 @@ def open_github(event):
 root = tk.Tk()
 root.title("Sem Título")
 root.geometry('450x450')
-root.configure(bg='light blue')
+root.configure(bg='light gray')
 
 label_color = 'gray20'
 button_color = 'dodger blue'
 button_fg = 'white'
 
-frame = tk.Frame(root, bg='light blue')
+frame = tk.Frame(root, bg='light gray')
 frame.pack(expand=True, fill='both')
 
-link_label = tk.Label(frame, text="Insira o link do vídeo do YouTube:", bg='light blue', fg=label_color)
+link_label = tk.Label(frame, text="Insira o link do vídeo do YouTube:", bg='light gray', fg=label_color)
 link_label.pack(padx=10, pady=5, anchor='w')
 
-link_entry = tk.Entry(frame, bg='light gray', fg=label_color)
+link_entry = tk.Entry(frame, bg='white', fg=label_color)
 link_entry.pack(padx=10, pady=5, fill='x')
 
-file_label = tk.Label(frame, text="", bg='light blue', fg=label_color)
+file_label = tk.Label(frame, text="", bg='light gray', fg=label_color)
 file_label.pack(padx=10, pady=5, anchor='w')
 
-download_button = tk.Button(frame, text="Baixar Vídeo", command=download_video, bg=button_color, fg=button_fg)
+download_button = tk.Button(frame, text="Carregar Vídeo", command=download_video, bg=button_color, fg=button_fg)
 download_button.pack(padx=10, pady=5, fill='x')
 
-inicio_label = tk.Label(frame, text="Selecione o tempo de início (mm:ss):", bg='light blue', fg=label_color)
+inicio_label = tk.Label(frame, text="Selecione o tempo de início (mm:ss):", bg='light gray', fg=label_color)
 inicio_label.pack(padx=10, pady=5, anchor='w')
 
-inicio_entry = tk.Entry(frame, bg='light gray', fg=label_color)
+inicio_entry = tk.Entry(frame, bg='white', fg=label_color)
 inicio_entry.pack(padx=10, pady=5, fill='x')
 
-fim_label = tk.Label(frame, text="Selecione o tempo de fim (mm:ss):", bg='light blue', fg=label_color)
+fim_label = tk.Label(frame, text="Selecione o tempo de fim (mm:ss):", bg='light gray', fg=label_color)
 fim_label.pack(padx=10, pady=5, anchor='w')
 
-fim_entry = tk.Entry(frame, bg='light gray', fg=label_color)
+fim_entry = tk.Entry(frame, bg='white', fg=label_color)
 fim_entry.pack(padx=10, pady=5, fill='x')
 
-extensao_label = tk.Label(frame, text="Selecione o formato de saída:", bg='light blue', fg=label_color)
+extensao_label = tk.Label(frame, text="Selecione o formato de saída:", bg='light gray', fg=label_color)
 extensao_label.pack(padx=10, pady=5, anchor='w')
 
 mp4_var = tk.IntVar()
 mp3_var = tk.IntVar()
 
-extensao_mp4 = tk.Checkbutton(frame, text="MP4", variable=mp4_var, onvalue=1, offvalue=0, bg='light blue', fg='black')
+extensao_mp4 = tk.Checkbutton(frame, text="MP4", variable=mp4_var, onvalue=1, offvalue=0, bg='light gray', fg='black')
 extensao_mp4.pack(padx=10, pady=5, anchor='w')
 
-extensao_mp3 = tk.Checkbutton(frame, text="MP3", variable=mp3_var, onvalue=1, offvalue=0, bg='light blue', fg='black')
+extensao_mp3 = tk.Checkbutton(frame, text="MP3", variable=mp3_var, onvalue=1, offvalue=0, bg='light gray', fg='black')
 extensao_mp3.pack(padx=10, pady=5, anchor='w')
 
 editar_button = tk.Button(frame, text="Editar Vídeo", command=editar_video, bg=button_color, fg=button_fg)
@@ -165,13 +165,13 @@ abrir_pasta_button = tk.Button(frame, text="Abrir Pasta", command=abrir_pasta, b
 abrir_pasta_button.pack(padx=10, pady=5, fill='x')
 
 # Footer
-footer_frame = tk.Frame(root, bg='light blue')
+footer_frame = tk.Frame(root, bg='light gray')
 footer_frame.pack(side='bottom', fill='x')
 
-reserved_label = tk.Label(footer_frame, text="Todos os direitos reservados: ", bg='light blue', fg='black')
+reserved_label = tk.Label(footer_frame, text="Todos os direitos reservados: ", bg='light gray', fg='black')
 reserved_label.pack(side='left')
 
-rapha_link = tk.Label(footer_frame, text="Rapha®", bg='light blue', fg='blue', cursor='hand2')
+rapha_link = tk.Label(footer_frame, text="Rapha®", bg='light gray', fg='blue', cursor='hand2')
 rapha_link.pack(side='left')
 rapha_link.bind("<Button-1>", open_github)
 
