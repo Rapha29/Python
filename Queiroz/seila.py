@@ -12,45 +12,64 @@ import pywhatkit as kit
 
 pg.PAUSE = 1
 
-file_path = r'C:\Users\Downloads\relatorio_roteiro.xls'
+# Caminho da pasta de downloads do navegador
+file_path = r'C:\Users\rapha\Downloads\relatorio_roteiro.xls'
 
+# Definir endereço do site
+url = 'https://fhdistribuidora.tradepro.com.br/fhdistribuidora/login.jsf;jsessionid=8a607e2c07ea6d33f242c5bd7bce'
+
+# Definir intervalo de datas
 data_inicio = '01/11/2023'
 data_final = '15/11/2023'
 
-promotores = ['Aira Manuele', 
-              'Allisson', 
+# Definir nomes a serem encontrados na planilha
+promotores = ['Allisson', 
               'Daniel Silva', 
               'Jocirley Paulo']
-
-numero_whatsapp = "+55"
+ 
+# Definir numero do whatsapp para quem enviar cada relatório
+numero_whatsapp = "+559281529451"
 
 servico = Service(ChromeDriverManager().install())
 navegador = webdriver.Chrome(service=servico)
 
-navegador.get('https://fhdistribuidora.tradepro.com.br/fhdistribuidora/login.jsf;jsessionid=8a607e2c07ea6d33f242c5bd7bce')
+# Abre o navegador com o endereço selecionado
+navegador.get(url)
 pg.hotkey('winleft', 'up')
 tm.sleep(2)
+
+# Efetua o login no site
 navegador.find_element('xpath', '//*[@id="j_username"]').send_keys('') 
 navegador.find_element('xpath', '//*[@id="j_password"]').send_keys('')
 navegador.find_element('xpath', '//*[@id="botaoAcaoBancoEntrar"]/span[2]').click()
 navegador.find_element('xpath', '//*[@id="consulta"]/a').click()
-pg.moveTo(487, 534, 0.5)
 pg.scroll(-100)
+
+# Seleciona o link roteiros
 navegador.find_element('xpath', '//*[@id="roteiros"]/a').click()
 tm.sleep(1)
 pg.scroll(-200)
+
+# Clica e modifica o texttobox de pesquisa entre datas
 navegador.find_element('xpath', '//*[@id="j_idt241"]/a').click()
 navegador.find_element('xpath', '//*[@id="dataInicial_input"]').click()
 pg.press('backspace', presses=10)
-# Data inicial 
+tm.sleep(1)
+
+# Define a Data inicial 
 navegador.find_element('xpath', '//*[@id="dataInicial_input"]').send_keys(data_inicio) 
 tm.sleep(1)
 pg.press('tab')
 pg.press('backspace', presses=10)
-# Data final
-navegador.find_element('xpath', '//*[@id="dataFinal_input"]').send_keys(data_final)
-pg.click(x=975, y=585)
 tm.sleep(1)
+
+# Define a Data final
+navegador.find_element('xpath', '//*[@id="dataFinal_input"]').send_keys(data_final)
+tm.sleep(2)
+
+# Clica em pesquisar para aplicar o filtro de datas
+navegador.find_element('xpath', '//*[@id="botaoAcaoBancoPesquisar"]').click()
+tm.sleep(5)
 
 # Baixa o arquivo excel
 navegador.find_element('xpath', '//*[@id="botaoAcaoBancoExcel_button"]').click()
@@ -63,6 +82,7 @@ sheet = book.sheet_by_index(0)  # Assume que os dados estão na primeira planilh
 # Lendo o arquivo .xls e filtrando os dados para cada promotor
 dados_promotores = {promotor: [] for promotor in promotores}
 
+# Le o arquivo excel inicial para procurar todas as ocorrências dos nomes 
 for rowx in range(1, sheet.nrows):  # Ignorando o cabeçalho, começando da segunda linha
     nome_na_coluna_b = sheet.cell_value(rowx, 1)  # Lendo a coluna 'B'
     for promotor in promotores:
@@ -74,6 +94,7 @@ for rowx in range(1, sheet.nrows):  # Ignorando o cabeçalho, começando da segu
 diretorio_origem = os.path.dirname(file_path)
 caminhos_arquivos = []
 
+# Separa cada nome com suas respectivas entradas da planilha
 for promotor, dados in dados_promotores.items():
     if dados:
         novo_arquivo = xlwt.Workbook()
@@ -113,6 +134,7 @@ for promotor, caminho_arquivo in zip(promotores, caminhos_arquivos):
         tm.sleep(1)
         pg.press('enter') 
         tm.sleep(2)
+        pg.hotkey('control', 'w')
 
     # Envio dos arquivos
     enviar_arquivos_whatsapp(numero_whatsapp, caminhos_arquivos)
