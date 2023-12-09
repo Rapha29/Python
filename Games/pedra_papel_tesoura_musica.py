@@ -62,18 +62,17 @@ ascii_images = {
     """,
     "Papel": """
        _______
-    ---'   ____)____
-              ______)
+    ---'   ____)_____
               _______)
-             _______)
-    ---.__________)
+              ________)
+             ________)
+    ---.___________)
     PAPEL
     """,
     "Tesoura": """
-        _______
-    ---'   ____)____
-              ______)
-           __________)
+    ---'   ____)______
+              ________)
+           ___________)
           (____)
     ---.__(___)
     TESOURA
@@ -112,11 +111,5 @@ result_label.pack(pady=20)
 # Variáveis do placar
 player_score = 0
 computer_score = 0
-
-# Adicione essas linhas para tocar a música ao vencer e ao perder
-if player_score == 3:
-    play_sound()
-if computer_score == 3:
-    play_sound()
 
 root.mainloop()

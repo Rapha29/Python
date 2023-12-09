@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AjudaAI</title>
+<link rel="stylesheet" href="static\css\style.css">
+</head>
+
+<body>
+    <div class="menu-container">
+        <div class="filter-container">           
+            <ul id="category-filter">
+                <li><a href="#TA">Voltar</a></li>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="content">
+        <h3>Arquitetura e Organização de Computadores</h3>
+        <h4>1º Semestre</h4>
+
+        <div class="container">
+        {% for category, files in file_list.items() %}
+        {% if files %}
+        <div class="file-category {{ category }}"> <!-- Adicione a classe da categoria -->
+            <h2>{{ category }}</h2>
+            <div class="file-container">
+                {% for file in files %}
+                <div class="file-box {{ category }}">
+                    <div class="thumbnail-container">
+                        <!-- Conteúdo centralizado verticalmente e horizontalmente -->
+                        <div class="centered-content">
+
+                            {% if category == 'AV' %}
+                            <div id="documentos">
+                                <img src="static/pdf.png" alt="Visualização do ISO"
+                                    style="max-width: 100%; height: auto;" />
+                                <p><a href="{{ file.url }}" target="_blank">{{
+                                        file.filename.split('-')[-1].replace('(Undead) (v1.5)', '').split('.')[0] }}</a>
+                                </p>
+                            </div>
+
+                            {% else %}
+                            <enable id="outros">                               
+                                <a href="{{ file.url }}">
+                                    <div style="text-align: center;">
+                                        <img src="static/pdf.png" alt="Ícone de PDF"
+                                            style="max-width: 100%; height: auto;" />
+                                        <p><a href="{{ file.url }}" target="_blank">{{ file.filename.split('-')[-1]
+                                                }}</a> </p>
+
+                                    </div>
+                                </a>
+
+                            </enable>
+
+                                {% endif %}
+                            
+
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</body>
+
+</html>

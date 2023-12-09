@@ -1,343 +1,351 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #8a57ead2;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
-/* Estilos para o container principal */
-div {
-    text-align: center;
-}
-
-/* Estilos para os cabeçalhos */
-h1, h2 {
-    color: #333;
-}
-
-/* Estilos para os tipos de arquivo */
-.file-type {
-    font-size: 18px;
-    margin: 10px 0;
-}
-
-/* Estilos para as miniaturas das imagens */
-.thumbnail-container {
-    width: 250px; /* Tamanho fixo para todas as miniaturas */
-    height: 250px; /* Tamanho fixo para todas as miniaturas */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Recorta as miniaturas para o tamanho fixo */
-    border-radius: 4px;
-}
-
-img {
-    max-width: 100%;
-    max-height: 100%;
-    margin: 10px 0;
-}
-
-/* Estilos para os players de vídeo e áudio */
-.file-player {
-    width: 100%;
-    height: auto;
-    margin: 10px 0;
-}
-
-/* Estilos para os nomes de arquivo */
-p {
-    margin: 0;
-    color: #555;
-}
-
-/* Estilos para as caixas de arquivo */
-.file-box {
-    background-color: #ffffff;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    padding: 10px;
-    border-radius: 4px;
-    margin: 10px;
-    display: inline-block;
-    width: calc(30% - 20px); /* Itens em grupos de 3 com margem entre eles */
-    min-width: 250px; /* Tamanho mínimo para evitar quebra de layout */
-    height: 250px; /* Tamanho fixo para todas as caixas */
-}
-
-/* Estilos para os links de cadastro */
-p a {
-    text-decoration: none;
-    color: #007BFF;
-    transition: color 0.3s ease;
-}
-
-p a:hover {
-    color: #0056b3;
-}
-
-/* Estilos para as divs de categoria */
-.file-category {
-    background-color: #f7f7f7;
-    max-width: 96%;
-    border-radius: 8px;
-    padding: 20px;
-    margin: 20px auto; /* Margem superior e inferior auto e margem esquerda e direita auto centralizarão o elemento horizontalmente */
-    text-align: center; /* Centraliza o conteúdo na horizontal */
-}
-
-/* Estilos para os elementos de categoria */
-.file-category h2 {
-    background-color: #f7f7f7;
-    max-width: 96%;
-    border-radius: 8px;
-    padding: 20px;
-    margin: 20px auto; /* Margem superior e inferior auto e margem esquerda e direita auto centralizarão o elemento horizontalmente */
-    text-align: center; /* Centraliza o conteúdo na horizontal */
-    color: #333;
-}
-
-/* Estilos para as divs internas alinhadas horizontalmente */
-.file-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:first baseline /* Itens alinhados horizontalmente */
-}
-
-/* Estilos para as divs internas alinhadas horizontalmente */
-.file-box {
-    background-color: #ffffff;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    padding: 10px;
-    border-radius: 4px;
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-width: 250px;
-    height: 250px;
-}
-/* Estilos para a div de filtro */
-.filter-container {
-    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco quase transparente */
-    padding: 10px;
-    margin-bottom: 20px;
-}
-
-/* Estilos para a div de upload */
-.upload-container {
-    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco quase transparente */
-    padding: 10px;
-    margin-bottom: 20px;
-}
-
-/* Estilos para o filtro */
-label {
-    margin-right: 10px;
-}
-
-/* Estilos para o campo de upload */
-#upload-form {
-    display: flex;
-    align-items: center;
-}
-
-#upload-form input[type="file"] {
-    width: 100%;
-}
-
-/* Estilos para o menu */
-.menu-container {
-    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco quase transparente */
-    padding: 0px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1;
-}
-
-/* Estilos para a div de filtro */
-.filter-container {
-    text-align: right;
-}
-
-/* Estilos para a div de upload */
-.upload-container {
-    text-align: left;
-}
-
-/* Estilos para o filtro */
-label {
-    font-size: 18px;
-    margin-right: 10px;
-}
-
-select {
-    font-size: 18px;
-    padding: 5px;
-}
-
-/* Estilos para o campo de upload */
-#upload-form {
-    display: flex;
-    align-items: center;
-}
-
-#upload-form input[type="file"] {
-    font-size: 18px;
-    padding: 10px;
-}
-
-#upload-form input[type="submit"] {
-    font-size: 18px;
-    padding: 10px 10px;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#upload-form input[type="submit"]:hover {
-    background-color: #0056b3;
-}
-/* Estilos para a div principal que envolve todo o conteúdo */
-.content {
-    padding-top: 85px; /* Espaço superior para acomodar o menu */
-}
-
-/* Estilos para o menu */
-.menu-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1;
-}
-
-/* Estilos para a div de filtro */
-.filter-container {
-    text-align: right;
-}
-
-/* Estilos para a div de upload */
-.upload-container {
-    text-align: left;
-}
-
-/* Estilos para o conteúdo centralizado */
-.centered-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    text-align: center;
-}
-
-/* Estilos para o nome do arquivo */
-.centered-content a {
-    font-size: 18px; /* Tamanho da fonte */
-    white-space: nowrap; /* Evita que o texto quebre em várias linhas */
-    overflow: hidden; /* Esconde o texto que não cabe */
-    text-overflow: ellipsis; /* Exibe reticências (...) quando o texto não cabe */
-    max-width: 100%; /* Garante que o texto não ultrapasse a largura da div */
-}
-
-#login-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
-    text-align: center;
-}
-
-#login-container h2 {
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.login-input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-#login-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-#login-button:hover {
-    background-color: #0056b3;
-}
-
-#login-register-link {
-    margin-top: 15px;
-    font-size: 14px;
-    color: #555;
-}
-
-#login-register-link a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-#error-container {
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    max-width: 400px;
-    margin: 100px auto;
-}
-
-#back-link {
-    text-decoration: none;
-    color: #0074d9;
-    font-weight: bold;
-}
-
-/* Estilos para o topo do menu */
-#top-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 99%;
-    background-color: #fff;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Estilos para as informações de clima e localidade */
-#weather-info, #location-info, #ip-info {
-    padding: 10px;
-}
+    /* Estilos para os tipos de arquivo */
+    .file-type {
+        font-size: 18px;
+        margin: 10px 0;
+    }
+    
+    /* Estilos para as miniaturas das imagens */
+    .thumbnail-container {
+    
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        /* Recorta as miniaturas para o tamanho fixo */
+        border-radius: 4px;
+    }
+    
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        margin: 2px;
+    }
+    
+    /* Estilos para os nomes de arquivo */
+    p {
+        margin: 0;
+        color: #555;
+    }
+    
+    /* Estilos para as caixas de arquivo */
+    .file-box {
+    
+        background-color: #ffffff;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        padding: 2px;
+        border-radius: 4px;
+        margin: 2px;
+        display: inline-block;
+        width: calc(30% - 20px);
+        /* Itens em grupos de 3 com margem entre eles */
+        min-width: 250px;
+        /* Tamanho mínimo para evitar quebra de layout */
+        height: 250px;
+        /* Tamanho fixo para todas as caixas */
+    }
+    
+    /* Estilos para as divs de categoria */
+    .file-category {
+        background-color: #f7f7f7;
+        max-width: 96%;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px auto;
+        /* Margem superior e inferior auto e margem esquerda e direita auto centralizarão o elemento horizontalmente */
+        text-align: center;
+        /* Centraliza o conteúdo na horizontal */
+    }
+    
+    /* Estilos para os elementos de categoria */
+    .file-category h2 {
+        background-color: #f7f7f7;
+        max-width: 96%;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px auto;
+        /* Margem superior e inferior auto e margem esquerda e direita auto centralizarão o elemento horizontalmente */
+        text-align: center;
+        /* Centraliza o conteúdo na horizontal */
+        color: #333;
+    }
+    
+    /* Estilos para as divs internas alinhadas horizontalmente */
+    .file-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: first baseline
+            /* Itens alinhados horizontalmente */
+    }
+    
+    /* Estilos para as divs internas alinhadas horizontalmente */
+    .file-box {
+        background-color: #ffffff;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        /*padding: 10px;*/
+        border-radius: 4px;
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-width: 250px;
+        height: 250px;
+    }
+    
+    
+    /* Estilos para o filtro */
+    label {
+        margin-right: 10px;
+    }
+    
+    /* Estilos para o menu */
+    .menu-container {
+        background-color: rgba(255, 255, 255, 0.9);
+        /* Fundo branco quase transparente */
+        padding: 0px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1;
+    }
+    
+    /* Estilos para a div principal que envolve todo o conteúdo */
+    .content {
+        padding-top: 85px;
+        /* Espaço superior para acomodar o menu */
+    }
+    
+    /* Estilos para o menu */
+    .menu-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1;
+    }
+    
+    /* Estilos para a div de filtro */
+    .filter-container {
+        text-align: right;
+    }
+    
+    /* Estilos para a div de upload */
+    .upload-container {
+        text-align: left;
+    }
+    
+    /* Estilos para o conteúdo centralizado */
+    .centered-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        text-align: center;
+    }
+    
+    /* Estilos para o nome do arquivo */
+    .centered-content a {
+        font-size: 18px;
+        /* Tamanho da fonte */
+        white-space: nowrap;
+        /* Evita que o texto quebre em várias linhas */
+        overflow: hidden;
+        /* Esconde o texto que não cabe */
+        text-overflow: ellipsis;
+        /* Exibe reticências (...) quando o texto não cabe */
+        max-width: 100%;
+        /* Garante que o texto não ultrapasse a largura da div */
+    }
+    
+    #back-link {
+        text-decoration: none;
+        color: #0074d9;
+        font-weight: bold;
+    }
+    
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .container {
+        background-color: #333;
+        border: 2px solid #000;
+        border-radius: 15px;
+        padding: 5%;
+        width: 80%;
+        margin: 5% auto;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+    }
+    
+    h1 {
+        color: #3f3b3b;
+        font-size: 200%;
+    }
+    
+    h2 {
+        color: #fafafa;
+        font-size: 18px;
+    }
+    
+    /* Remova as bolinhas da lista não ordenada */
+    #category-filter {
+        list-style-type: none;
+        margin-left: 5px;
+        margin-right: 5px;
+        padding: 0;
+    }
+    
+    /* Estilize os links para ficarem lado a lado */
+    #category-filter li {
+        display: inline;
+        margin-right: 10px;
+        /* Espaçamento entre os links */
+    }
+    
+    /* Remova as bolinhas da lista não ordenada */
+    #category-filter {
+        list-style-type: none;
+        margin-left: 5px;
+        padding: 0;
+        /* Defina uma largura fixa para a barra horizontal do menu */
+        width: 100%;
+        display: flex;
+        /* Use flexbox para alinhar os itens horizontalmente */
+    }
+    
+    /* Estilize os links para ficarem lado a lado */
+    #category-filter li {
+        display: inline;
+        /* Remova o margin-right para que os botões se ajustem à largura da barra horizontal */
+    }
+    
+    /* Estilo base para os links parecerem botões */
+    #category-filter li a {
+        display: inline-block;
+        padding: 10px 20px;
+        /* Remova a largura fixa para que os botões tenham o mesmo tamanho */
+        text-align: center;
+        /* Espaçamento interno para o botão */
+        text-decoration: none;
+        background-color: #007BFF;
+        /* Cor de fundo do botão */
+        color: #fff;
+        /* Cor do texto do botão */
+        border: 1px solid #007BFF;
+        /* Borda do botão */
+        border-radius: 5px;
+        /* Cantos arredondados */
+        /* Remova o margin-right para que os botões se ajustem à largura da barra horizontal */
+    }
+    
+    /* Estilo quando o mouse está sobre o link */
+    #category-filter li a:hover {
+        background-color: #0056b3;
+        /* Cor de fundo alterada no hover */
+        border-color: #0056b3;
+        /* Borda alterada no hover */
+    }
+    
+    /* Estilo quando o link está sendo pressionado */
+    #category-filter li a:active {
+        background-color: #003380;
+        /* Cor de fundo alterada quando pressionado */
+        border-color: #003380;
+        /* Borda alterada quando pressionado */
+    }
+    
+    /* Media query para tornar o menu responsivo em telas menores (como a do J7 Prime) */
+    @media (max-width: 500px) {
+        #category-filter {
+            margin-left: 2px;
+            margin-right: 2px;
+            /* Adicione margem de 2px nas laterais em telas pequenas */
+            flex-wrap: wrap;
+            /* Permite que os botões quebrem para a próxima linha */
+        }
+    
+        #category-filter li {
+            flex: 1;
+            /* Os botões se expandirão igualmente na largura da barra horizontal */
+            margin-right: 10px;
+            /* Adicione margem entre os botões */
+            margin-bottom: 10px;
+            /* Adicione margem na parte inferior dos botões */
+        }
+    
+        #category-filter li a {
+            width: 100%;
+            /* Os botões ocuparão toda a largura da barra horizontal */
+            margin-right: 0;
+            /* Remova a margem entre os botões */
+        }
+    }
+    
+    /* Media query para tornar o menu responsivo em telas menores (como a do J7 Prime) */
+    @media (max-width: 360px) {
+        #category-filter {
+            margin-left: 2px;
+            margin-right: 2px;
+            /* Adicione margem de 2px nas laterais em telas pequenas */
+            flex-wrap: wrap;
+            /* Permite que os botões quebrem para a próxima linha */
+        }
+    
+        #category-filter li {
+            flex: 1;
+            /* Os botões se expandirão igualmente na largura da barra horizontal */
+            margin-right: 10px;
+            /* Adicione margem entre os botões */
+            margin-bottom: 10px;
+            /* Adicione margem na parte inferior dos botões */
+        }
+    
+        #category-filter li a {
+            width: 100%;
+            /* Os botões ocuparão toda a largura da barra horizontal */
+            margin-right: 0;
+            /* Remova a margem entre os botões */
+        }
+    }
+    
+    /* Media query para tornar o menu responsivo em telas menores (como a do J7 Prime) */
+    @media (max-width: 760px) {
+        #category-filter {
+            margin-left: 2px;
+            margin-right: 2px;
+            /* Adicione margem de 2px nas laterais em telas pequenas */
+            flex-wrap: wrap;
+            /* Permite que os botões quebrem para a próxima linha */
+        }
+    
+        #category-filter li {
+            flex: 1;
+            /* Os botões se expandirão igualmente na largura da barra horizontal */
+            margin-right: 10px;
+            /* Adicione margem entre os botões */
+            margin-bottom: 10px;
+            /* Adicione margem na parte inferior dos botões */
+        }
+    
+        #category-filter li a {
+            width: 100%;
+            /* Os botões ocuparão toda a largura da barra horizontal */
+            margin-right: 0;
+            /* Remova a margem entre os botões */
+        }
+    }
