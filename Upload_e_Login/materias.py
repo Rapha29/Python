@@ -19,7 +19,7 @@ def render_sociedade_fazueli():
     file_list = sociedade_fazueli()
     return render_template('sociedade_fazueli.html', file_list=file_list)
 
-@app.route('/fazueli', methods=['GET'])
+@app.route('/interface_e_usabilidade', methods=['GET'])
 def render_interface_e_usabilidade():
     file_list = interface_e_usabilidade()
     return render_template('arquitetura.html', file_list=file_list)

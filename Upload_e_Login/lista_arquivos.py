@@ -41,6 +41,9 @@ def projeto_de_software():
 def sociedade_fazueli():
     return agrupar_arquivos('sociedade_fazueli')
 
+def interface_e_usabilidade():
+    return agrupar_arquivos('interface_e_usabilidade')
+
 def seguranca_e_auditoria():
     return agrupar_arquivos('seguranca_e_auditoria')
 
