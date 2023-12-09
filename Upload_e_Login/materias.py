@@ -24,7 +24,6 @@ def render_interface_e_usabilidade():
     file_list = interface_e_usabilidade()
     return render_template('arquitetura.html', file_list=file_list)
 
-
 @app.route('/seguranca_e_auditoria', methods=['GET'])
 def render_seguranca_e_auditoria():
     file_list = seguranca_e_auditoria()
