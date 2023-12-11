@@ -2,8 +2,8 @@ import math
 
 def beber_agua():
     peso = float(input("Digite o seu peso em kg: "))
-    hora_acordar = int(input("Digite a hora que você acorda (em horas): "))
-    hora_dormir = int(input("Digite a hora que você vai dormir (em horas): "))
+    hora_acordar = int(input("Digite a hora que você acorda aproximadamente (em horas): "))
+    hora_dormir = int(input("Digite a hora que você vai dormir aproximadamente (em horas): "))
 
     quantidade_total = peso * 35  # Calcula a quantidade total de água em ml
     horas_acordado = hora_dormir - hora_acordar  # Calcula o número de horas que a pessoa estará acordada
