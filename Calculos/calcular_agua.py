@@ -1,5 +1,4 @@
 import math
-
 def beber_agua():
     peso = float(input("Digite o seu peso em kg: "))
     hora_acordar = int(input("Digite a hora que você acorda aproximadamente (em horas): "))
@@ -8,7 +7,7 @@ def beber_agua():
     quantidade_total = peso * 35  # Calcula a quantidade total de água em ml
     horas_acordado = hora_dormir - hora_acordar  # Calcula o número de horas que a pessoa estará acordada
     doses_diarias = quantidade_total / 200  # Calcula o número de doses diárias
-    quantidade_litros = quantidade_total / 1000
+    quantidade_litros = quantidade_total / 1000 # Calcula em litros a quantidade necessária de água
     doses_por_dia = math.ceil(doses_diarias)  # Arredonda o número de doses para cima
     print(f"Você deve beber {quantidade_litros:.1f} litros de água durante o dia.")
     print(f"Você deve beber {doses_por_dia} copos de água (200ml cada) durante o dia.\n")
@@ -26,6 +25,5 @@ def beber_agua():
             minutos = 59
         print(f" -> 🥛 Tome um copo de água às {hora_atual:02.0f}:{minutos:02d}")
         hora_atual += intervalo_minutos / 60
-
 beber_agua()
 
