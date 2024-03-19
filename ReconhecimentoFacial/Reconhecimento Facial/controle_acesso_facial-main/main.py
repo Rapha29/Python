@@ -1,7 +1,14 @@
-import cv2
-import statistics
-from pyfirmata import Arduino,SERVO
+import cv2  # pip install opencv-python
+import statistics # pip install statistics
+from pyfirmata import Arduino,SERVO  # pip install pyfirmata
 from time import sleep
+
+# Pai Nosso que estais no céu, santificado seja o vosso nome, 
+# vem a nós o vosso reino, seja feita a vossa vontade assim na terra como no céu. 
+# O pão nosso de cada dia nos daí hoje, perdoai-nos as nossas ofensas, 
+# assim como nós perdoamos a quem nos tem ofendido, 
+# não nos deixei cair em tentação mas livrai-nos do mal. Amém.
+
 
 port = 'COM3'
 pin = 10

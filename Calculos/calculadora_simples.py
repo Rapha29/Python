@@ -48,4 +48,4 @@ while True:
         if isinstance(resultado, str):
             print(resultado)
         else:
-            print("Resultado: ", resultado)
+            print("Resultado: \n", resultado)

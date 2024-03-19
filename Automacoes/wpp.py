@@ -1,6 +1,5 @@
 import pywhatkit as kit
 import openpyxl
-import datetime
 import pyautogui
 import time
 import locale
@@ -18,26 +17,27 @@ caminho_arquivo_excel = os.path.join(os.path.dirname(__file__), 'dados.xlsx')
 wb = openpyxl.load_workbook(caminho_arquivo_excel)
 planilha = wb.active
 
+time.sleep(5)
+
 try:
     for row in planilha.iter_rows(min_row=2, values_only=True):
-        nome = row[0]
-        numero = "+55" + row[1]
-        vencimento = row[2]
-        chave_pix = row[3]
-        mes_atual = datetime.datetime.now().strftime('%B - %Y')
-        mes_atual_ptbr = datetime.datetime.now().strftime('%B de %Y')
-        favorecido = row[4]
-        
-        if vencimento == "0" or vencimento == 0:
+        Nome = row[0]
+        Numero = "+55" + str(row[1])
+        Enviar = row[2]
+                
+        if Enviar == None:
             pyautogui.hotkey("ctrl", "w")
-            print(f"Pulando {nome} porque não possui data de vencimento")
+            print(f"Pulando {Nome}")
         else:
-            mensagem_personalizada = f'Bom dia {nome}, seu boleto de: {vencimento}, por gentileza, nos envie o comprovante de pagamento feito com a Chave Pix: {chave_pix}\n\n[ ( Mês de {mes_atual_ptbr} ) ]\n\nFavorecido: {favorecido}'
             pyautogui.press("esc")
-            enviar_mensagem_whatsapp(numero, mensagem_personalizada)
-            time.sleep(2)
+            mensagem_personalizada = f'Olá {Nome}, só passando para avisar que em breve teremos mais conteúdos'
+            enviar_mensagem_whatsapp(Numero, mensagem_personalizada)
+            time.sleep(1)
+            pyautogui.press("Enter")
+            time.sleep(1)
             pyautogui.hotkey("ctrl", "w")
-            print(f"Mensagem Enviada com sucesso para: {nome}")
+            time.sleep(1)
+            print(f"Mensagem Enviada com sucesso para: {Nome}")
         
         if keyboard.is_pressed('q'):
             print("Encerramento manual detectado, parando scripts...")
