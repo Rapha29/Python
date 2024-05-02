@@ -1,0 +1,32 @@
+digraph "Clustered web Services" {
+	graph [fontcolor="#2D3436" fontname="Sans-Serif" fontsize=15 label="Clustered web Services" nodesep=0.60 pad=2.0 rankdir=LR ranksep=0.75 splines=ortho]
+	node [fixedsize=true fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 height=1.4 imagescale=true labelloc=b shape=box style=rounded width=1.4]
+	edge [color="#7B8894"]
+	a21558c40e8c438aa63500be03a9aca5 [label=dns height=1.9 image="d:\Repositorio\Python\.venv\Lib\site-packages\resources/aws/network\route-53.png" shape=none]
+	"220655cfb3f64812abb90f4271fc3f49" [label=lb height=1.9 image="d:\Repositorio\Python\.venv\Lib\site-packages\resources/aws/network\elastic-load-balancing.png" shape=none]
+	subgraph cluster_Services {
+		graph [bgcolor="#E5F5FD" fontname="Sans-Serif" fontsize=12 label=Services labeljust=l pencolor="#AEB6BE" rankdir=LR shape=box style=rounded]
+		"3c717b983fb34768956ae099752b57d6" [label=web1 height=1.9 image="d:\Repositorio\Python\.venv\Lib\site-packages\resources/aws/compute\elastic-container-service.png" shape=none]
+		"53c96a8f256e4e93bddab77f07bfaf25" [label=web2 height=1.9 image="d:\Repositorio\Python\.venv\Lib\site-packages\resources/aws/compute\elastic-container-service.png" shape=none]
+		"9d89cf5f03b94602a66d2ab7dd603db0" [label=web3 height=1.9 image="d:\Repositorio\Python\.venv\Lib\site-packages\resources/aws/compute\elastic-container-service.png" shape=none]
+	}
+	subgraph "cluster_DB Cluster" {
+		graph [bgcolor="#E5F5FD" fontname="Sans-Serif" fontsize=12 label="DB Cluster" labeljust=l pencolor="#AEB6BE" rankdir=LR shape=box style=rounded]
+		f7d8a33cdf7f49b3b37c0d4733410665 [label=userdb height=1.9 image="d:\Repositorio\Python\.venv\Lib\site-packages\resources/aws/database\rds.png" shape=none]
+		f0101f29fe174478b6176678b14ac1d8 [label="userdb ro" height=1.9 image="d:\Repositorio\Python\.venv\Lib\site-packages\resources/aws/database\rds.png" shape=none]
+	}
+	df18b61d3ee247038e47d9ba7aafb6a7 [label=memcached height=1.9 image="d:\Repositorio\Python\.venv\Lib\site-packages\resources/aws/database\elasticache.png" shape=none]
+	a21558c40e8c438aa63500be03a9aca5 -> "220655cfb3f64812abb90f4271fc3f49" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"220655cfb3f64812abb90f4271fc3f49" -> "3c717b983fb34768956ae099752b57d6" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"220655cfb3f64812abb90f4271fc3f49" -> "53c96a8f256e4e93bddab77f07bfaf25" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"220655cfb3f64812abb90f4271fc3f49" -> "9d89cf5f03b94602a66d2ab7dd603db0" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"3c717b983fb34768956ae099752b57d6" -> f7d8a33cdf7f49b3b37c0d4733410665 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"53c96a8f256e4e93bddab77f07bfaf25" -> f7d8a33cdf7f49b3b37c0d4733410665 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"9d89cf5f03b94602a66d2ab7dd603db0" -> f7d8a33cdf7f49b3b37c0d4733410665 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"3c717b983fb34768956ae099752b57d6" -> f0101f29fe174478b6176678b14ac1d8 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"53c96a8f256e4e93bddab77f07bfaf25" -> f0101f29fe174478b6176678b14ac1d8 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"9d89cf5f03b94602a66d2ab7dd603db0" -> f0101f29fe174478b6176678b14ac1d8 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"3c717b983fb34768956ae099752b57d6" -> df18b61d3ee247038e47d9ba7aafb6a7 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"53c96a8f256e4e93bddab77f07bfaf25" -> df18b61d3ee247038e47d9ba7aafb6a7 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"9d89cf5f03b94602a66d2ab7dd603db0" -> df18b61d3ee247038e47d9ba7aafb6a7 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+}
